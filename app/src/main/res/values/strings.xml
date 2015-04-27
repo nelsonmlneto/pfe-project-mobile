@@ -1,6 +1,20 @@
 <resources>
-    <string name="app_name">ShemsMobile</string>
+    <string name="app_name">SHEMS</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="general_energy_title">General Energy Consumption</string>
+
+    <string name="current_month_label">Current Month:</string>
+
+    <string-array name="months">
+        <item>March</item>
+        <item>February</item>
+        <item>January</item>
+    </string-array>
+
+    <string name="goal_label">Goal:</string>
+    <string name="consumed_label">Consumed:</string>
+
+
+
     <string name="action_settings">Settings</string>
 </resources>
