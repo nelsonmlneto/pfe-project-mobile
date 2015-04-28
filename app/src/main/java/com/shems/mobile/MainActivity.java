@@ -1,18 +1,25 @@
 package com.shems.mobile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
 
 import com.shems.control.Controller;
 import com.shems.model.Consumption;
+import com.shems.model.HouseObject;
+
+import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -20,6 +27,11 @@ public class MainActivity extends ActionBarActivity {
     Controller controller;
 
     Spinner spinnerMonth;
+    ImageButton buttonGeneralChart;
+    ImageButton buttonObjectsChart;
+
+    List<HouseObject> objects;
+    ListView listViewObjects;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +71,46 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
         });
+
+        //Initialize General and Objects Chart Button
+        buttonGeneralChart = (ImageButton) findViewById(R.id.buttonGeneralChart);
+        buttonGeneralChart.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),GeneralChartActivity.class));
+            }
+        });
+        buttonObjectsChart = (ImageButton) findViewById(R.id.buttonObjectsChart);
+        buttonObjectsChart.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),ObjectsChartActivity.class));
+            }
+        });
+
+        //Initialize Object List
+        this.objects = controller.getObjectList();
+        listViewObjects = (ListView) findViewById(R.id.listViewObj);
+        listViewObjects.setAdapter(new HouseObjectAdapter(this.objects));
+
+    }
+
+    private class HouseObjectAdapter extends ArrayAdapter<HouseObject>{
+        public HouseObjectAdapter(List<HouseObject> objects){
+            super (MainActivity.this, R.layout.object_list_item, objects);
+        }
+
+        @Override
+        public View getView(int position, View view, ViewGroup parent){
+            if(view == null)
+                view = getLayoutInflater().inflate(R.layout.object_list_item, parent, false);
+
+            HouseObject current = objects.get(position);
+            TextView title = (TextView) findViewById(R.id.textObjName);
+            title.setText(current.getTitle());
+
+            return view;
+        }
 
     }
 

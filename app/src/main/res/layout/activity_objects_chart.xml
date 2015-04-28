@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.shems.mobile.GeneralChartActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/objects_chart_title"
+            android:id="@+id/titleGeneralChart"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textColor="#4d4d4d"
+            android:textSize="22sp"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="inherit"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/current_month_label"
+                android:id="@+id/labelCurrentMonth"
+                android:textColor="#4d4d4d"
+                android:textSize="20sp"
+                android:paddingRight="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="March"
+                android:id="@+id/textCurrentMonth"
+                android:textColor="#4d4d4d"
+                android:textSize="20sp"
+                android:paddingRight="10dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

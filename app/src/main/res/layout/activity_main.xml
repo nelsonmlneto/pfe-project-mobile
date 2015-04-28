@@ -48,7 +48,8 @@
                         android:textColor="#4d4d4d"
                         android:textStyle="bold"
                         android:textSize="23sp"
-                        android:enabled="true" />
+                        android:enabled="true"
+                        android:singleLine="false" />
 
                     <LinearLayout
                         android:orientation="horizontal"
@@ -98,9 +99,18 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textAppearance="?android:attr/textAppearanceMedium"
-                                android:text="100 kWh"
+                                android:text="100"
                                 android:id="@+id/textGoal"
                                 android:layout_column="1"
+                                android:textColor="#4d4d4d"
+                                android:textSize="20sp"
+                                android:paddingRight="10dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="kWh"
+                                android:id="@+id/textView"
                                 android:textColor="#4d4d4d"
                                 android:textSize="20sp" />
 
@@ -132,9 +142,18 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textAppearance="?android:attr/textAppearanceMedium"
-                                android:text="84 kWh"
+                                android:text="84"
                                 android:id="@+id/textConsumed"
                                 android:layout_column="1"
+                                android:textColor="#4d4d4d"
+                                android:textSize="20sp"
+                                android:paddingRight="10sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="kWh"
+                                android:id="@+id/textView2"
                                 android:textColor="#4d4d4d"
                                 android:textSize="20sp" />
 
@@ -166,7 +185,7 @@
                         <ImageButton
                             android:layout_width="120dp"
                             android:layout_height="120dp"
-                            android:id="@+id/imageGeneralChart"
+                            android:id="@+id/buttonGeneralChart"
                             android:scaleType="fitXY"
                             android:layout_marginRight="20dp"
                             android:src="@drawable/linechart" />
@@ -174,7 +193,7 @@
                         <ImageButton
                             android:layout_width="120dp"
                             android:layout_height="120dp"
-                            android:id="@+id/imageObjectsChart"
+                            android:id="@+id/buttonObjectsChart"
                             android:src="@drawable/piechart"
                             android:adjustViewBounds="true"
                             android:scaleType="fitXY" />
@@ -186,7 +205,28 @@
                     android:id="@+id/tabObjects"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:orientation="vertical"></LinearLayout>
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/objects_title"
+                        android:id="@+id/labelObjects"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="15dp"
+                        android:textIsSelectable="false"
+                        android:textColor="#4d4d4d"
+                        android:textStyle="bold"
+                        android:textSize="23sp"
+                        android:enabled="true"
+                        android:singleLine="false" />
+
+                    <ListView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/listViewObj" />
+                </LinearLayout>
 
             </FrameLayout>
         </LinearLayout>
