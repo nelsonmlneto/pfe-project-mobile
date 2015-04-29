@@ -1,6 +1,7 @@
 package com.shems.mobile;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -10,10 +11,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.shems.control.Controller;
 import com.shems.model.Consumption;
@@ -29,6 +32,7 @@ public class MainActivity extends ActionBarActivity {
     Spinner spinnerMonth;
     ImageButton buttonGeneralChart;
     ImageButton buttonObjectsChart;
+    Spinner spinnerRoom;
 
     List<HouseObject> objects;
     ListView listViewObjects;
@@ -91,11 +95,41 @@ public class MainActivity extends ActionBarActivity {
         //Initialize Object List
         this.objects = controller.getObjectList();
         listViewObjects = (ListView) findViewById(R.id.listViewObj);
-        listViewObjects.setAdapter(new HouseObjectAdapter(this.objects));
+        populateHouseObjectList();
+        listViewObjects.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                HouseObject listItem = objects.get(position);
+                Toast.makeText(getApplicationContext(), "CLICOOU : " + listItem.getId(),
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+
+        //Initialize Spinner Room
+        spinnerRoom = (Spinner) findViewById(R.id.spinnerRoom);
+        monthAdapter = ArrayAdapter.createFromResource(this, R.array.rooms, R.layout.spinner_item);
+        spinnerRoom.setAdapter(monthAdapter);
+        spinnerRoom.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedRoom = ((TextView) view).getText().toString();
+                objects = controller.getObjectListByRoom(selectedRoom);
+                populateHouseObjectList();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {}
+        });
 
     }
 
+    private void populateHouseObjectList(){
+        HouseObjectAdapter adapter = new HouseObjectAdapter(this.objects);
+        listViewObjects.setAdapter(adapter);
+    }
+
     private class HouseObjectAdapter extends ArrayAdapter<HouseObject>{
+
         public HouseObjectAdapter(List<HouseObject> objects){
             super (MainActivity.this, R.layout.object_list_item, objects);
         }
@@ -103,10 +137,16 @@ public class MainActivity extends ActionBarActivity {
         @Override
         public View getView(int position, View view, ViewGroup parent){
             if(view == null)
-                view = getLayoutInflater().inflate(R.layout.object_list_item, parent, false);
+                view = getLayoutInflater().inflate(R.layout.object_list_item, null);
 
             HouseObject current = objects.get(position);
-            TextView title = (TextView) findViewById(R.id.textObjName);
+            TextView title = (TextView) view.findViewById(R.id.textObjName);
+            ImageView status = (ImageView) view.findViewById(R.id.imageStatus);
+
+            if(current.getTurned().equals("on")){
+                status.setBackgroundColor(Color.parseColor("#70b500"));
+            }
+
             title.setText(current.getTitle());
 
             return view;

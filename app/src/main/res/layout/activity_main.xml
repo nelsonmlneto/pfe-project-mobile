@@ -55,7 +55,8 @@
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingTop="20dp">
+                        android:paddingTop="20dp"
+                        android:layout_gravity="center_vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -207,25 +208,35 @@
                     android:layout_height="fill_parent"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="@string/objects_title"
-                        android:id="@+id/labelObjects"
-                        android:layout_gravity="center_horizontal"
                         android:layout_marginTop="15dp"
-                        android:textIsSelectable="false"
-                        android:textColor="#4d4d4d"
-                        android:textStyle="bold"
-                        android:textSize="23sp"
-                        android:enabled="true"
-                        android:singleLine="false" />
+                        android:layout_gravity="center_horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/choose_room_label"
+                            android:id="@+id/labelChooseRoom"
+                            android:layout_marginRight="15dp"
+                            android:textColor="#4d4d4d"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <Spinner
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/spinnerRoom" />
+
+                    </LinearLayout>
 
                     <ListView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:id="@+id/listViewObj" />
+                        android:id="@+id/listViewObj"
+                        android:layout_marginTop="10dp" />
                 </LinearLayout>
 
             </FrameLayout>

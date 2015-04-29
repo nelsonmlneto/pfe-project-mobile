@@ -10,13 +10,23 @@ public class HouseObject {
     private String serial;
     private String description;
     private String turned;
+    private String room;
 
-    public HouseObject(String title, Integer id, String serial, String description, String turned) {
+    public HouseObject(String title, Integer id, String serial, String description, String turned, String room) {
         this.title = title;
         this.id = id;
         this.serial = serial;
         this.description = description;
         this.turned = turned;
+        this.room = room;
+    }
+
+    public String getRoom() {
+        return room;
+    }
+
+    public void setRoom(String room) {
+        this.room = room;
     }
 
     public String getTitle() {

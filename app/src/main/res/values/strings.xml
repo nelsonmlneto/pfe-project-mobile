@@ -16,6 +16,17 @@
 
     <!-- Tab List of Objects -->
     <string name="objects_title">Objects</string>
+    <string name="choose_room_label">Room:</string>
+    <string-array name="rooms">
+        <item>All</item>
+        <item>Kitchen</item>
+        <item>Living Room</item>
+        <item>TV Room</item>
+        <item>Couple Bedroom</item>
+        <item>Kids Bedroom</item>
+        <item>Garage</item>
+        <item>Bathroom</item>
+    </string-array>
 
     <!-- General Chart Activity-->
     <string name="general_chart_title">General Consumption Chart</string>
