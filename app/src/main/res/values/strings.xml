@@ -33,5 +33,9 @@
 
     <!-- Objects Chart Activity-->
     <string name="objects_chart_title">Objects Consumption Chart</string>
+    <string name="title_activity_object">ObjectActivity</string>
+
+    <!-- Object Visualization Activity-->
+    <string name="object_visualization_title">Object Visualization</string>
 
 </resources>

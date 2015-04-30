@@ -12,13 +12,13 @@ public class HouseObject {
     private String turned;
     private String room;
 
-    public HouseObject(String title, Integer id, String serial, String description, String turned, String room) {
+    public HouseObject(String title, Integer id, String serial, String turned, String room, String description) {
         this.title = title;
         this.id = id;
         this.serial = serial;
-        this.description = description;
         this.turned = turned;
         this.room = room;
+        this.description = description;
     }
 
     public String getRoom() {

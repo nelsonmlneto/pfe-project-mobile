@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.shems.control.Controller;
 import com.shems.model.Consumption;
 import com.shems.model.HouseObject;
+import com.shems.model.ObjectActivity;
 
 import java.util.List;
 
@@ -36,6 +37,12 @@ public class MainActivity extends ActionBarActivity {
 
     List<HouseObject> objects;
     ListView listViewObjects;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        populateHouseObjectList();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,8 +107,8 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 HouseObject listItem = objects.get(position);
-                Toast.makeText(getApplicationContext(), "CLICOOU : " + listItem.getId(),
-                        Toast.LENGTH_LONG).show();
+                controller.setCurrentObject(listItem);
+                startActivity(new Intent(getApplicationContext(), ObjectActivity.class));
             }
         });
 
