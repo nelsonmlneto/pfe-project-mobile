@@ -28,6 +28,10 @@
         <item>Bathroom</item>
     </string-array>
 
+    <!-- Object Visualization Activity-->
+    <string name="object_visualization_title">Object Visualization</string>
+    <string name="title_activity_single_object_chart">SingleObjectChartActivity</string>
+
     <!-- General Chart Activity-->
     <string name="general_chart_title">General Consumption Chart</string>
 
@@ -35,7 +39,21 @@
     <string name="objects_chart_title">Objects Consumption Chart</string>
     <string name="title_activity_object">ObjectActivity</string>
 
-    <!-- Object Visualization Activity-->
-    <string name="object_visualization_title">Object Visualization</string>
+    <!-- Single Object Chart Activity-->
+    <string name="single_obj_chart_title">Single Object Chart</string>
+    <string name="current_obj_label">Current Object:</string>
+    <string name="title_activity_register_object">RegisterObjectActivity</string>
+
+    <!-- General Chart Activity-->
+    <string name="register_title">Register a new Object</string>
+    <string-array name="add_rooms">
+        <item>Kitchen</item>
+        <item>Living Room</item>
+        <item>TV Room</item>
+        <item>Couple Bedroom</item>
+        <item>Kids Bedroom</item>
+        <item>Garage</item>
+        <item>Bathroom</item>
+    </string-array>
 
 </resources>
