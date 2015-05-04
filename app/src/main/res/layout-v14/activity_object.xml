@@ -56,6 +56,15 @@
             android:textOff="OFF"
             android:textOn="ON"/>
 
+        <ImageButton
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/buttonObjChart"
+            android:scaleType="fitXY"
+            android:src="@drawable/linechart"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp" />
+
     </LinearLayout>
 
 </RelativeLayout>
