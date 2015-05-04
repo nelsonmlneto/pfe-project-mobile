@@ -12,6 +12,15 @@ public class HouseObject {
     private String turned;
     private String room;
 
+    public HouseObject(String title, String serial, String room, String description) {
+        this.title = title;
+        this.serial = serial;
+        this.turned = "off";
+        this.room = room;
+        this.description = description;
+    }
+
+
     public HouseObject(String title, Integer id, String serial, String turned, String room, String description) {
         this.title = title;
         this.id = id;

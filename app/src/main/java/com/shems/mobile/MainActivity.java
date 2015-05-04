@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -41,6 +42,8 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        String selectedRoom = spinnerRoom.getSelectedItem().toString();
+        objects = controller.getObjectListByRoom(selectedRoom);
         populateHouseObjectList();
     }
 
@@ -114,8 +117,8 @@ public class MainActivity extends ActionBarActivity {
 
         //Initialize Spinner Room
         spinnerRoom = (Spinner) findViewById(R.id.spinnerRoom);
-        monthAdapter = ArrayAdapter.createFromResource(this, R.array.rooms, R.layout.spinner_item);
-        spinnerRoom.setAdapter(monthAdapter);
+        ArrayAdapter roomAdapter = ArrayAdapter.createFromResource(this, R.array.rooms, R.layout.spinner_item);
+        spinnerRoom.setAdapter(roomAdapter);
         spinnerRoom.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -126,6 +129,15 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
+        });
+
+        //Initialize Register Button
+        Button registerButtom = (Button) findViewById(R.id.buttonAddObj);
+        registerButtom.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), RegisterObjectActivity.class));
+            }
         });
 
     }

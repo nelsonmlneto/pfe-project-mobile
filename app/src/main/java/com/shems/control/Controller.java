@@ -57,6 +57,12 @@ public class Controller {
         this.currentObject = currentObject;
     }
 
+    public void addNewObject(HouseObject object){
+        int id = this.objectList.size() + 1;
+        object.setId(id);
+        this.objectList.put(id,object);
+    }
+
     public static Controller getInstance(){
         if(_instance == null)
             _instance = new Controller();
