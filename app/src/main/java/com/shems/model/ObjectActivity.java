@@ -1,17 +1,21 @@
 package com.shems.model;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import com.shems.control.Controller;
 import com.shems.mobile.R;
+import com.shems.mobile.SingleObjectChartActivity;
 
 public class ObjectActivity extends ActionBarActivity {
 
@@ -43,6 +47,14 @@ public class ObjectActivity extends ActionBarActivity {
                 }else{
                     currentObject.setTurned("off");
                 }
+            }
+        });
+
+        ImageButton chartButton = (ImageButton) findViewById(R.id.buttonObjChart);
+        chartButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), SingleObjectChartActivity.class));
             }
         });
 
