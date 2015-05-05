@@ -17,12 +17,10 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.shems.control.Controller;
 import com.shems.model.Consumption;
 import com.shems.model.HouseObject;
-import com.shems.model.ObjectActivity;
 
 import java.util.List;
 
@@ -164,6 +162,10 @@ public class MainActivity extends ActionBarActivity {
 
             if(current.getTurned().equals("on")){
                 status.setBackgroundColor(Color.parseColor("#70b500"));
+            }else if(current.getTurned().equals("off")){
+                status.setBackgroundColor(Color.parseColor("#eb5a46"));
+            }else{
+                status.setBackgroundColor(Color.parseColor("#d6dadc"));
             }
 
             title.setText(current.getTitle());

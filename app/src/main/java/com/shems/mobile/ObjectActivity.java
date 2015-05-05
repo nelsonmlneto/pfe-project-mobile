@@ -1,4 +1,4 @@
-package com.shems.model;
+package com.shems.mobile;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.shems.control.Controller;
 import com.shems.mobile.R;
 import com.shems.mobile.SingleObjectChartActivity;
+import com.shems.model.HouseObject;
 
 public class ObjectActivity extends ActionBarActivity {
 
@@ -40,6 +41,7 @@ public class ObjectActivity extends ActionBarActivity {
         if(currentObject.getTurned().equals("on")){
             switchOnOff.setChecked(true);
         }
+
         switchOnOff.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){

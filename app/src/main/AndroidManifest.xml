@@ -28,7 +28,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.shems.model.ObjectActivity"
+            android:name=".ObjectActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>

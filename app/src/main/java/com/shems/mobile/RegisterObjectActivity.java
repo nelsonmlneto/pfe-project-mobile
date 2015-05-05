@@ -53,7 +53,6 @@ public class RegisterObjectActivity extends ActionBarActivity {
                 controller.addNewObject(newObject);
 
                 finish();
-
             }
         });
     }
